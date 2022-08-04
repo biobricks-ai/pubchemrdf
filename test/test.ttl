@@ -1,0 +1,21 @@
+@prefix sio:	<http://semanticscience.org/resource/> .
+@prefix compound:	<http://rdf.ncbi.nlm.nih.gov/pubchem/compound/> .
+compound:CID157249825	sio:CHEMINF_000480	compound:CID281994 ,
+		compound:CID944 ,
+		compound:CID7444 ,
+		compound:CID95292 ,
+		compound:CID53167 ,
+		compound:CID74234 ,
+		compound:CID5714022 ,
+		compound:CID4769782 ,
+		compound:CID13748962 ,
+		compound:CID22505825 ,
+		compound:CID58170455 ,
+		compound:CID58774799 ,
+		compound:CID69165863 ,
+		compound:CID157249826 .
+compound:CID157249898	sio:CHEMINF_000480	compound:CID57850291 ,
+		compound:CID136047021 .
+compound:CID157249909	sio:CHEMINF_000480	compound:CID23993 ,
+		compound:CID88558403 ,
+		compound:CID147310157 .
