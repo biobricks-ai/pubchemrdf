@@ -1,5 +1,7 @@
 # PubChemRDF
 
+<a href="https://github.com/biobricks-ai/comptox/actions"><img src="https://github.com/biobricks-ai/comptox/actions/workflows/bricktools-check.yaml/badge.svg?branch=main"/></a>
+
 ## Description
 
 RDF constitutes a family of World Wide Web Consortium (W3C) specifications for data interchange on the Web. RDF breaks down knowledge into machine-readable discrete pieces, called “triples.” Each “triple” is organized as a trio of ‘subject-predicate-object’. For example, in the phrase “atorvastatin may treat hypercholesterolemia,” the subject is “atorvastatin”, the predicate is “may treat”, and the object is “hypercholesterolemia.” RDF uses a Uniform Resource Identifier (URI) to name each part of the “subject-predicate-object” triple. A URI looks just like a typical web URL. RDF is a core part of semantic web standards. As an extension of the existing World Wide Web, the semantic web attempts to make it easier for users to find, share, and combine information. Semantic web leverages the following technologies: extensible markup language (XML), which provides syntax for RDF; web ontology language (OWL), which extends the ability of RDF to encode information; resource description framework (RDF), which expresses knowledge; and RDF query language (SPARQL), which enables query and manipulation of RDF content.
