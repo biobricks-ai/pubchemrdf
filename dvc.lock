@@ -1,9 +1,9 @@
 schema: '2.0'
 stages:
-  download_unzip_data:
-    cmd: ./DownloadUnzipPubChemRDF.sh
+  build_data:
+    cmd: ./BuildPubChemRDF.sh
     deps:
-    - path: src/DownloadUnzipPubChemRDF.sh
+    - path: src/BuildPubChemRDF.sh
       md5: 
       size: 
     outs:
@@ -11,29 +11,7 @@ stages:
       md5: 
       size: 
       nfiles: 
-    - path: raw/
-      md5: 
-      size: 
-      nfiles:   
-  serialize_data:
-    cmd: Rscript R/gunzipCompoundsSDF.R
-    deps:
-    - path: R/gunzipCompoundsSDF.R
-      md5: 
-      size: 
-    outs:
-    - path: raw/
-      md5: 
-      size: 
-      nfiles: 
-  build_data:
-    cmd: python R/buildCompoundsSDF.py
-    deps:
-    - path: R/buildCompoundsSDF.py
-      md5: 
-      size: 
-    outs:
     - path: data/
       md5: 
       size: 
-      nfiles: 
+      nfiles:   

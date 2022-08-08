@@ -4,5 +4,6 @@ ssh_command.sh
 .Rhistory
 /data
 /download
-/raw
+/ttl
+/nquads
 /temp

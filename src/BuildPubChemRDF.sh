@@ -74,31 +74,30 @@ echo "Download done."
 
 # Unzip files
 temppath="$localpath/temp"
-echo "Temporal path: $temppath"
 mkdir -p $temppath
-rawpath="$localpath/raw"
-echo "Raw path: $rawpath"
+echo "Temporal path: $temppath"
+
+datapath="$localpath/data"
+mkdir -p $datapath
+echo "Data path: $datapath"
+
 cd $downloadpath
 find . -type d > $temppath/dirs.txt
-find . -type f -name '*.ttl.gz' > $temppath/downloadedfiles.txt
-cd $rawpath
-xargs mkdir -p < $temppath/dirs.txt
-for filename in `cat $temppath/downloadedfiles.txt`; do
-  rawname=${filename%.*}
-  rawname=${rawname:2}
-  if test -f "$rawpath/$rawname"; then
-    echo "File $rawpath/$rawname already unzipped."
-  else
-    echo "Unziping file: $filename"
-    gunzip -c $downloadpath/$filename > $rawpath/$rawname;
-  fi
-done
+find . -type f -name '*.ttl.gz' | cut -c 2- | cut -f 1 -d '.' | sort > $temppath/files.txt
 
-# Get data ready to parse and serialize in parquet by Py
-datapath="$localpath/data"
-echo "Data path: $datapath"
-mkdir -p $datapath
 cd $datapath
 xargs mkdir -p < $temppath/dirs.txt
-cd $rawpath
-find . -type f -name '*.ttl' > $temppath/unzipedfiles.txt
+cd $localpath
+
+cat $temppath/files.txt | xargs -P4 -n1 bash -c '
+if test -f '$datapath'$1.parquet; then
+  echo "build '$datapath'$1.parquet already created."
+else
+  gunzip -c '$downloadpath'$1.ttl.gz > '$datapath'$1.ttl; 
+  rapper -i turtle -o nquads '$datapath'$1.ttl > '$datapath'$1.nquads;
+  rm '$datapath'$1.ttl;
+  python src/nquads2parquet.py '$datapath'$1.nquads;
+  rm '$datapath'$1.nquads;
+  rm '$datapath'$1.csv;
+fi' {}
+
