@@ -1,6 +1,6 @@
 # PubChemRDF
 
-<a href="https://github.com/biobricks-ai/PubChemRDF/actions"><img src="https://github.com/biobricks-ai/comptox/actions/workflows/bricktools-check.yaml/badge.svg?branch=main"/></a>
+<a href="https://github.com/biobricks-ai/PubChemRDF/actions"><img src="https://github.com/biobricks-ai/PubChemRDF/actions/workflows/bricktools-check.yaml/badge.svg?branch=main"/></a>
 
 ## Description
 
