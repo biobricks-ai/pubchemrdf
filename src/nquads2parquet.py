@@ -17,6 +17,8 @@ Data = Data.replace("> \"", ">\t\"")
 Data = Data.replace(" .", "")
 Data = Data.replace("\"@en", "\"")
 Data = Data.replace("\\\"", "_")
+Data = Data.replace("\"^^<http://www.w3.org/2001/XMLSchema#float>", "\"\t")
+Data = Data.replace("\"^^<http://www.w3.org/2001/XMLSchema#int>", "\"\t")
 
 CSVFile = open(FileNameCSV, "wt")
 CSVFile.write(Data)

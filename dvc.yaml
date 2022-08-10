@@ -1,7 +1,24 @@
 stages:
-  build:
-    cmd: src/BuilPubChemRDF.sh
+  download: 
+    cmd: src/1_download.sh
     deps:
+    - src/1_download.sh
     outs:
     - download/
+    - temp/
+  unzip:
+    cmd: src/2_unzip.sh
+    deps:
+    - src/2_unzip.sh
+    - download/
+    - temp/
+    outs:
+    - raw/
+  build:
+    cmd: src/3_build_parquet.sh
+    deps:
+    - src/3_build_parquet.sh
+    - raw/
+    - temp/
+    outs:
     - data/
