@@ -1,0 +1,13 @@
+schema: '2.0'
+stages:
+  download:
+    cmd: src/1_download.sh
+    deps:
+    - path: src/1_download.sh
+      md5: 97bdde929f266859eaa9ed7fa37bf1e4
+      size: 1152
+    outs:
+    - path: download/
+      md5: f9b4686c15cb84ffc82938e6ae6c84e4.dir
+      size: 28297576736
+      nfiles: 418

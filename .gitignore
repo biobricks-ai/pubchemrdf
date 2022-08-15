@@ -1,10 +1,8 @@
-ssh_command.sh
 .RData
 .DS_Store
 .Rhistory
 /data
 /download
-/ttl
-/nquads
 /temp
 /raw
+core

@@ -5,14 +5,13 @@ stages:
     - src/1_download.sh
     outs:
     - download/
-    - temp/
   unzip:
     cmd: src/2_unzip.sh
     deps:
     - src/2_unzip.sh
     - download/
-    - temp/
     outs:
+    - temp/
     - raw/
   build:
     cmd: src/3_build_parquet.sh
