@@ -11,3 +11,41 @@ stages:
       md5: f9b4686c15cb84ffc82938e6ae6c84e4.dir
       size: 28297576736
       nfiles: 418
+  unzip:
+    cmd: src/2_unzip.sh
+    deps:
+    - path: download/
+      md5: f9b4686c15cb84ffc82938e6ae6c84e4.dir
+      size: 28297576736
+      nfiles: 418
+    - path: src/2_unzip.sh
+      md5: 61b36784c2b9744b67aab49f3deb73cd
+      size: 713
+    outs:
+    - path: raw/
+      md5: 874d2f6c3894bcb8c0cdc6c1858325b2.dir
+      size: 392322560373
+      nfiles: 418
+    - path: temp/
+      md5: 5f66b55c6f75becf5260f87183d3b905.dir
+      size: 19823
+      nfiles: 2
+  build:
+    cmd: src/3_build_parquet.sh
+    deps:
+    - path: raw/
+      md5: 874d2f6c3894bcb8c0cdc6c1858325b2.dir
+      size: 392322560373
+      nfiles: 418
+    - path: src/3_build_parquet.sh
+      md5: c4ba91926100ace91d81550baa379f4c
+      size: 735
+    - path: temp/
+      md5: 5f66b55c6f75becf5260f87183d3b905.dir
+      size: 19823
+      nfiles: 2
+    outs:
+    - path: data/
+      md5: 0abde6d89e9a29af89504389a5a0b3b7.dir
+      size: 59130444360
+      nfiles: 415
