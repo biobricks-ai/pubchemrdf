@@ -12,7 +12,7 @@ echo "Temporal path: $temppath"
 rawpath="$localpath/raw"
 echo "Raw path: $rawpath"
 
-datapath="$localpath/data"
+datapath="$localpath/brick/pubchemrdf.parquet"
 mkdir -p $datapath
 echo "Data path: $datapath"
 
@@ -30,3 +30,8 @@ else
   rm '$datapath'$1.csv;
 fi' {}
 
+find . -type f -iname "*.parquet" -print0 |
+  # Move each file to the parent directory
+  while IFS= read -r -d '' file; do
+    mv "$file" ./brick/pubchemrdf.parquet
+  done
